@@ -1,0 +1,171 @@
+#Minimax alg --> Applied in Tic Tac Toe
+
+#Three possible outcomes: Win = 1
+#                         Lose = -1
+#                         Tie = 0
+
+#We have two agents/players (X & O)
+#We'll call X = Max Player MAX(X)  --> aims to maximize the score 
+#And   call O = Min Player MIN(O)  --> aims to minimize the score
+# Meaning, that the notion of: Winnig and Losing, its now a mathematical approach to, choosing
+# bigger or lower scenarios (Three possible outcomes)
+
+# -------------------------------------------------------------------------------
+#Tic Tac Toe 
+
+#functions: 
+# player() = Return the players turn
+# action() = set of possible actions
+# terminal() = checks if the game is over
+# result() = takes the board (in its current state) + an action, and generates a new state on the board
+# utility() = evaluates the state/score (Recursive situation)
+
+# start() = initialize the board, and call the functions terminal-action-player
+
+
+
+
+#Alpha Beta Pruning (Optimization)
+
+#Depth Limited Minimax
+
+
+
+
+
+-----------------------------------------------------------------------
+import tkinter as tk 
+
+'''
+value = 0 
+OUTCOMES = {'win' : 1,
+            'lose': -1,
+            'tie': 0
+            }
+
+
+def startGame(): 
+    board = [['' for _ in range(3)] for _ in range(3)] #Initialize board    
+    #playerf(0)  #Call player funct
+    return 0
+
+
+def playerf(player):
+    print(f"Is {player}'s turn") #Who's turn is it 
+    return player
+
+def action(player, board):
+    print(f'{player} in playing!')
+    if(player == 1): 
+        print('user plays') 
+    else:  
+        print('computer plays')
+    
+    
+    terminal(board)
+    
+    #The action -> change board value     
+    return playerf(not player)
+
+
+def terminal(board):
+    #Diagonals 
+    value = 0 
+    if(board[0][0] == board[1][1] and board[1][1] == board[2][2]):
+        if(board[0][0] == 'X'):
+            value = 1
+        else:
+            value = -1
+    #Rows
+    for j in range(0, 3):
+        i = 0
+        print(board[j][i])
+        print(board[j][i+1])
+        if(board[j][i] == board[j][i+1] and board[j][i+1] == board[j][i+2]):
+            if(board[j][i] == 'X'):
+                value = 1
+            else:
+                value = -1
+                print('A')
+            break;
+    #Columnns
+    for i in range(0, 3):
+        j = 0
+        if(board[j][i] == board[j+1][i] and board[j+1][i] == board[j+2][i]):
+            if(board[j][i] == 'X'):
+                value = 1
+            else:
+                value = -1
+            break;
+    
+    #Is it, in any of the outcomes?
+        #if it 
+            # end game
+        #else
+            #Call player
+    
+    return value
+
+board = [['' for _ in range(3)] for _ in range(3)]
+
+
+print(board)
+'''
+
+
+
+
+def startGame(): 
+    board = [['' for _ in range(3)] for _ in range(3)] #Initialize board    
+    #print(f'Player chooses {option} to play')
+    
+    return 0
+
+app = tk.Tk()
+palabra = tk.StringVar(app)
+entrada = tk.StringVar(app)
+
+
+app.geometry("400x300") #Dimension: Width x Height
+app.configure(background='black')
+tk.Wm.wm_title(app, 'Tic-Tac-Toe')
+
+tk.Label(
+    app,
+    text = 'TIC TAC TOE',
+    bg = 'black',
+    fg = 'white',
+    justify = 'center'
+).pack(
+    fill = tk.BOTH,
+    expand = True
+)
+
+
+tk.Button(
+    app, 
+    text = 'Start game',
+    font = ('Courier', 12), 
+    bg = '#55C2B4',
+    fg = 'white',
+    command = startGame
+).pack(
+    fill = tk.BOTH,
+    expand = True
+)
+
+tk.Entry(
+    app, 
+    bg = 'black',
+    fg = 'white',
+    justify = 'center',
+    textvariable = entrada 
+).pack(
+    fill = tk.BOTH,
+    expand = True
+)
+
+    
+app.mainloop() #Refresh 
+
+#print(terminal(board))
